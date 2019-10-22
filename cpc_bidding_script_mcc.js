@@ -40,6 +40,16 @@ var minCPC = 0.5;
 
 
 function main() {
+	var mccAccount =  AdWordsApp.currentAccount();
+      var accountID = 'ххх-ххх-хххх'; // Не забыть поменять!
+      var childAccounts = MccApp.accounts().withIds([accountID]).get();
+      var childAccount = childAccounts.next();
+      MccApp.select(childAccount);
+
+   adjustKeywords();
+
+}
+function adjustKeywords() {
   var report = AdWordsApp.report(
     "SELECT CampaignName, CampaignId, AdGroupId, Id, Criteria, CpcBid, FirstPageCpc, SearchImpressionShare, SearchTopImpressionShare " +
     "FROM KEYWORDS_PERFORMANCE_REPORT " +
