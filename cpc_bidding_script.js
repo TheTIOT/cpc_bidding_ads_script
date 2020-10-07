@@ -95,7 +95,7 @@ function newCpcValue (Criteria, CpcBid, FirstPageCpc, ImpShare, TOPImpShare) {
   if(cpc > maxCPC) {
     cpc = CpcBid;
   }
-  if(cpc < FirstPageCpc)  {
+  if(cpc < FirstPageCpc && FirstPageCpc < maxCPC)  {
     cpc = FirstPageCpc;
   }
   Logger.log([Criteria, CpcBid, cpc, FirstPageCpc, ImpShare, TOPImpShare])
